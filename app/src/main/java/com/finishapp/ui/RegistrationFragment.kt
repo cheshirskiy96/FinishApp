@@ -1,17 +1,12 @@
-package com.finishapp
+package com.finishapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.finishapp.databinding.RegistrationFragmentBinding
-import okhttp3.OkHttpClient
-import okhttp3.Request
 
 class RegistrationFragment : Fragment() {
 
@@ -42,9 +37,8 @@ class RegistrationFragment : Fragment() {
         binding.apply {
             rcView.layoutManager = LinearLayoutManager(requireContext())
             rcView.adapter = BrandAdapter()
-            rcView.setRecyclerListener {
+            
 
-            }
 
 
         }

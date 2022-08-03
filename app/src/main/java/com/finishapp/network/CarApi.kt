@@ -1,5 +1,6 @@
-package com.finishapp
+package com.finishapp.network
 
+import com.finishapp.BrandListModel
 import io.reactivex.Single
 import retrofit2.http.GET
 

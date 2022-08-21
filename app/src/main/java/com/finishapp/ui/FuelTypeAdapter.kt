@@ -14,13 +14,6 @@ class FuelTypeAdapter : RecyclerView.Adapter<FuelTypeAdapter.FuelTypeHolder>() {
 
     val fuelTypes = ArrayList<FuelType>()
 
-
-
-
-
-
-
-
     class FuelTypeHolder(item: View) : RecyclerView.ViewHolder(item) {
         val binding = FuelItemBinding.bind(item)
         var count: Int = 0

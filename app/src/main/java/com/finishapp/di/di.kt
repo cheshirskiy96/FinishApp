@@ -18,41 +18,30 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val appDIModule = module {
     single {
-        private val compositeDisposable = CompositeDisposable()
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(httpLoggingInterceptor)
             .build()
-        Retrofit.Builder()
-           .baseUrl("https://vpic.nhtsa.dot.gov/api/")
-           .client(okHttpClient)
-           .addConverterFactory(GsonConverterFactory.create())
-           .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-           .build()
-           .create(CarApi::class.java).getCarBrands()
 
-            compositeDisposable.add()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                    {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://vpic.nhtsa.dot.gov/api/")
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
+            val carApi = retrofit.create(CarApi::class.java)
+            carApi.getCarBrands()
 
-                    },
-                    {
-
-                    }
-                ))
-
+    }
+    }
+    val repositoryModule = module {
+        single<Repository> { RepositoryImpl() }
+        viewModel {
+            BrandListViewModel(get())
         }
     }
-}
-val repositoryModule = module {
-    single<Repository> { RepositoryImpl() }
-    viewModel {
-        BrandListViewModel(get())
-    }
-}
-val fragmentModule = module {
+    val fragmentModule = module {
 
-}
+
+    }

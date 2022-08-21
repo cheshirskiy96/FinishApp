@@ -25,21 +25,21 @@ class BrandListViewModel (
         repository.configureRetrofit()
 
     }
-
-
-
-    fun fetchBrandList(carApi: CarApi){
+    fun fetchBrandList (carApi: CarApi){
+        carApi?.let {
         compositeDisposable.add(carApi.getCarBrands()
-           .subscribeOn(Schedulers.io())
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                {
-                    appDIModule
-                },
-                {
+            .subscribe({
 
-                }
-            ))
+        },
+        {
 
+        }))
     }
+    }
+
+
+
+
 }

@@ -6,12 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.finishapp.BrandListViewModel
 import com.finishapp.R
 import com.finishapp.databinding.ActivityMainBinding
-import org.koin.androidx.fragment.android.setupKoinFragmentFactory
+import com.finishapp.network.CarApi
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

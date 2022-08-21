@@ -1,11 +1,15 @@
 package com.finishapp.repository
 
-import com.finishapp.network.CarApi
+import com.finishapp.di.appDIModule
 
 
-class RepositoryImpl : Repository {
-    override fun configureRetrofit(){
+
+class RepositoryImpl() : Repository {
+    override fun configureRetrofit() {
+        appDIModule
 
     }
 
 }
+
+

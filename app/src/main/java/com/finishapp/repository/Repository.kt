@@ -1,7 +1,13 @@
 package com.finishapp.repository
 
-interface Repository {
-    fun configureRetrofit(){
+import com.finishapp.database.FuelType
 
-    }
+interface Repository {
+    fun configureRetrofit()
+
+}
+
+fun setFuelType() {
+
+
 }

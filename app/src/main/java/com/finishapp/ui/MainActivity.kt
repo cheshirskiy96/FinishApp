@@ -1,12 +1,11 @@
 package com.finishapp.ui
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import com.finishapp.BrandListViewModel
 import com.finishapp.R
 import com.finishapp.databinding.ActivityMainBinding
-import com.finishapp.network.CarApi
+import com.finishapp.viewmodels.RefuelingViewModel
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 
@@ -26,6 +25,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.fragmentContainerView,
                 RegistrationFragment.newInstance()
             ).commit()
+        }
+        binding.buttonRefuel.setOnClickListener {
+//            val viewModel = getViewModel<RefuelingViewModel> ()
+                supportFragmentManager.beginTransaction().replace(
+                    R.id.fragmentContainerView,
+                    RefuelingFragment.newInstance()
+                ).commit()
+
         }
 
 

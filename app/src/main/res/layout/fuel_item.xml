@@ -19,6 +19,12 @@
             android:layout_width="410dp"
             android:layout_height="60dp"
             android:text="name" />
+
+        <TextView
+            android:id="@+id/textViewFuelType"
+            android:layout_width="410dp"
+            android:layout_height="match_parent"
+            android:text="TextViewFuelItem" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

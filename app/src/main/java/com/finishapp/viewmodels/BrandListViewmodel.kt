@@ -21,11 +21,12 @@ class BrandListViewModel(
     }
 
     fun configureRetrofit() {
-        compositeDisposable.add(repository.getCarBrands()
-            .applySchedulers()
-            .subscribe({ data ->
-                println(data)
-            }, Throwable::printStackTrace)
+        compositeDisposable.add(
+            repository.getCarBrands()
+                .applySchedulers()
+                .subscribe({ data ->
+                    println(data)
+                }, Throwable::printStackTrace)
         )
     }
 }

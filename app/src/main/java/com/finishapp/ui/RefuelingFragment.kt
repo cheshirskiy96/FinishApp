@@ -12,14 +12,16 @@ import com.finishapp.databinding.RefuelingFragmentBinding
 
 
 
-class RefuelingFragment(private val adapter: FuelTypeAdapter) : Fragment() {
-    private val fuelList = listOf(
-        "ДТ",
-        "Газ",
-        "Электричество"
-    )
-    var index: Int = 0
-    lateinit var binding: RefuelingFragmentBinding
+class RefuelingFragment : Fragment() {
+    private lateinit var binding: RefuelingFragmentBinding
+    //private lateinit var adapter: FuelTypeAdapter
+    private val fuelList = listOf<FuelType>(
+        FuelType("ДТ", 0),
+        FuelType("АИ-95", 1),
+        FuelType("Газ", 2),
+        FuelType("Электричество",3)
+        )
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,23 +39,20 @@ class RefuelingFragment(private val adapter: FuelTypeAdapter) : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = RefuelingFragment(adapter = FuelTypeAdapter())
+      fun newInstance() = RefuelingFragment()
     }
 
 
-    fun init() {
+   private fun init() {
         binding.apply {
             rcViewFuel.layoutManager = GridLayoutManager(requireContext(),1)
-            rcViewFuel.adapter = adapter
-            if (index > 4)
-                adapter.addFuelType(FuelType(fuelList[index], index))
-            index++
+            rcViewFuel.adapter = FuelTypeAdapter()
+            for (index in 0..3){
+            val fuel = FuelType(fuelList[index].name,index)
+                FuelTypeAdapter().addFuelType(fuel)
+            }
         }
 
-//            FuelTypeAdapter().fuelTypes.add(FuelType("ДТ", 0))
-//            FuelTypeAdapter().fuelTypes.add(FuelType("АИ-95", 1))
-//            FuelTypeAdapter().fuelTypes.add(FuelType("Газ", 2))
-//            FuelTypeAdapter().fuelTypes.add(FuelType("Электричество",3))
     }
 }
 

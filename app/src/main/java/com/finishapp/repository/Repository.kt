@@ -1,13 +1,9 @@
 package com.finishapp.repository
 
-import com.finishapp.database.FuelType
+import com.finishapp.BrandListModel
+import io.reactivex.Single
 
 interface Repository {
-    fun configureRetrofit()
-
+    fun getCarBrands():Single<BrandListModel>
 }
 
-fun setFuelType() {
-
-
-}

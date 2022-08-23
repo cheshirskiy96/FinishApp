@@ -9,6 +9,8 @@ import com.finishapp.R
 import com.finishapp.database.FuelType
 import com.finishapp.databinding.FuelItemBinding
 
+
+
 class FuelTypeAdapter : RecyclerView.Adapter<FuelTypeAdapter.FuelTypeHolder>() {
 
     val fuelTypes = ArrayList<FuelType>()
@@ -40,11 +42,10 @@ class FuelTypeAdapter : RecyclerView.Adapter<FuelTypeAdapter.FuelTypeHolder>() {
     }
 
 
-fun addFuelType(fuelType: FuelType) {
-    fuelTypes.add(fuelType)
-    return
+    fun addFuelType(fuelType: FuelType) {
+        fuelTypes.add(fuelType)
+        return
 
+    }
 }
-}
-
 

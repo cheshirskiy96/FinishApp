@@ -5,4 +5,3 @@ data class FuelType(
     val id: Int
 )
 
-

@@ -12,10 +12,6 @@ class RepositoryImpl(private val retrofit: Retrofit) : Repository {
 
     override fun getCarBrands(): Single<BrandListModel> = carApi.getCarBrands()
 
-//    override fun addFuelType(){
-//        fuelTypeModule
-//    }
-
 }
 
 

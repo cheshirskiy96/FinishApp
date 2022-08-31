@@ -5,18 +5,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.finishapp.BrandInfo
-import com.finishapp.BrandListModel
 import com.finishapp.R
 import com.finishapp.databinding.BrandItemBinding
 
 class BrandAdapter : RecyclerView.Adapter<BrandAdapter.BrandHolder>() {
 
-    val brandList = ArrayList<BrandInfo>()
+    val brandView = ArrayList<BrandInfo>()
 
     class BrandHolder(item: View) : RecyclerView.ViewHolder(item) {
         val binding = BrandItemBinding.bind(item)
         fun bind(brandList: BrandInfo) = with(binding) {
-            textViewBrandName.text = brandList.brandName
+            buttonBrandName.text = brandList.brandName
                  }
     }
 
@@ -26,15 +25,16 @@ class BrandAdapter : RecyclerView.Adapter<BrandAdapter.BrandHolder>() {
     }
 
     override fun onBindViewHolder(holder: BrandHolder, position: Int) {
-        holder.bind(brandList = brandList[position])
+        holder.bind(brandList = brandView[position])
         }
 
 
     override fun getItemCount(): Int {
-        return brandList.size
+        return brandView.size
     }
 
-    fun addBrand(brandList: BrandInfo) {
+    fun addBrand(brandInfo:List <BrandInfo>) {
+        brandView.addAll(brandInfo)
         notifyDataSetChanged()
     }
 

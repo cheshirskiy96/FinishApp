@@ -8,6 +8,11 @@ data class BrandListModel(
     var SearchCriteria: String?,
     var Result: List <BrandInfo>
 )
+{
+    companion object {
+        val EMPTYLIST = BrandListModel(0, "","", listOf())
+    }
+}
 
 data class BrandInfo(
     @SerializedName("Make_ID")
